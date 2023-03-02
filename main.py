@@ -27,21 +27,20 @@ content2 = """Lorem ipsum dolor sit amet, consectetuer adipiscing elit."""
 st.write(content2)
 
 
-colom3, colom4 = st.columns(2)
+colom3, empty_colom, colom4 = st.columns([1.5, 0.5, 1.5])
 
 dataframe = pd.read_csv("data.csv", sep = ";")
+
 for index, row, in dataframe.iterrows():
     if index % 2 == 0: 
         with colom3:
             st.header(row["title"])
+            st.write(row["description"])
+            st.image("images/"+row["image"])
+            st.write("[Source Code](https://www.google.cz/?hl=cs)")
     else:
         with colom4:
             st.header(row["title"])
-# with colom3:
-#     for index, row, in dataframe.iterrows():
-#         st.header(row["title"])
-        
-# with colom4:
-#     for index, row, in dataframe.iterrows():
-#         st.header(row["title"])
-        
+            st.write(row["description"])
+            st.image("images/"+row["image"])
+            st.write("[Source Code](https://www.google.cz/?hl=cs)")
