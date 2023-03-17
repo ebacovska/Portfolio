@@ -37,7 +37,8 @@ for index, row, in dataframe.iterrows():
             st.header(row["title"])
             st.write(row["description"])
             st.image("images/"+row["image"])
-            st.write("[Source Code](https://www.google.cz/?hl=cs)")
+            url = row["url"]
+            st.write("[Source Code](%s)" % url)
     else:
         with colom4:
             st.header(row["title"])
